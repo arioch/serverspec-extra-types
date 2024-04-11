@@ -12,6 +12,7 @@ module Serverspec::Type
       @insecure = options[:insecure]
       @redirects = options[:follow_redirects]
       @host = options[:host]
+      @proxy = options[:proxy]
     end
 
     def [](key)
@@ -38,7 +39,7 @@ module Serverspec::Type
     end
 
     def curl_command
-      "curl #{extra_args} #{@host ? '--header "Host: '+@host+'"' : '' } -s #{url} #{@insecure ? '-k' : ''} #{@redirects ? '-L' : ''}"
+      "curl #{extra_args} #{@host ? '--header "Host: '+@host+'"' : '' } -s #{@proxy ? '--proxy '+@proxy+'' : '' } #{url} #{@insecure ? '-k' : ''} #{@redirects ? '-L' : ''}"
     end
 
     # rubocop:disable Naming/AccessorMethodName

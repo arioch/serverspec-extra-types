@@ -32,6 +32,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency  'rest-client'
   spec.add_development_dependency 'docker-swarm-sdk'
   spec.add_development_dependency 'sinatra'
+  spec.add_development_dependency 'webrick'
+  spec.add_development_dependency 'rack'
+  spec.add_development_dependency 'rackup'
 
   spec.add_runtime_dependency 'serverspec'
 
